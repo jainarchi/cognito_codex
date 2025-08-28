@@ -1,1 +1,154 @@
-// soon 
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class cognito {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int first = Integer.MIN_VALUE;
+        int sec = Integer.MIN_VALUE;
+        int third = Integer.MIN_VALUE;
+
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i] > first) {
+                third = sec;
+                sec = first;
+                first = ar[i];
+            } else if (first != ar[i] && ar[i] > sec) {
+                third = sec;
+                sec = ar[i];
+            } else if (ar[i] != first && ar[i] != sec && ar[i] > third)
+                third = ar[i];
+        }
+        System.out.println(first + "  , " + sec + " , " + third);
+
+
+//----------------- bubble sort ---------------------------------
+
+    int ar [] = {12 , 10, 37 , 20 , 30 , 78 , 40 , 50};
+
+    for( int i = 0 ; i < ar.length -1 ; i++){
+        for( int j = 0 ; j < ar.length - 1 - i ; j++){
+            if( ar[j] > ar[j+1]){
+                int tp = ar[j];
+                ar[j] = ar[j+1];
+                ar[j+1] = tp;
+            }
+        }
+    }
+    System.out.println(Arrays.toString(ar ));
+
+
+//------------- selection sort --------------------------------------
+
+int arr [] = {12 , 56  , 9 , 6, 45 , 40 };
+
+for( int i = 0 ; i < arr.length - 1 ; i++ ){
+    int min = i ;
+
+    for( int j = i + 1  ; j < arr.length ; j++){
+        if( arr[min] > arr[j])
+            min = j;
+
+    }
+    if( arr[min] != arr[i]){
+        int tp = arr[min];
+        arr[min] = arr[i];
+        arr[i] = tp ;
+    }
+}
+System.out.println(Arrays.toString(arr));
+
+
+// -------------------------- insertion sort -------------------------------------
+
+int a []= {23 , 5, 8, 2, 50 , 40};
+
+for( int i = 1 ; i < a.length ; i++){
+    int j = i ;
+    while( j > 0 && a[j-1] > a[j] ){
+        int tp = a[j-1];
+        a[j-1] = a[j];
+        a[j] = tp ;
+        j-- ;
+    }
+}
+
+System.out.println(Arrays.toString(a));
+
+----------------------------------------------------------------
+
+int ar1 [] = {1 , 2, 3, 45, 7};
+int ar2[] = {10 , 20 , 30 , 40 , 50};
+
+int newAr [] = new int [ar1.length + ar2.length ];
+
+for( int i = 0 ; i < ar1.length ; i++){
+    newAr[i] = ar1[i];
+    newAr[i + ar1.length ] = ar2[i];
+}
+System.out.println(Arrays.toString(newAr));
+
+--------------------------------------------------------------------------
+
+int ch[] = {'a' , 'b' , 'c' , 'a' , 'a' , 'c' , 'b'};
+int val[] = {10 , 3 ,   6 ,   7,    8 ,  3,  2147483647};
+double A = Integer.MAX_VALUE;
+double B = Integer.MAX_VALUE;
+int C = Integer.MAX_VALUE;     // to find min value
+
+for( int i = 0 ; i < ch.length ; i++){
+    if( ch[i] == 'a' && A > val[i] ) A = val[i];
+    else if ( ch[i] == 'b' && B >  val[i] )B = val[i];
+    else if( ch[i] == 'c' && C > val[i] ) C = val[i];
+}
+
+double d = A + B ;
+System.out.println( (int)Math.min( d , C ));
+System.out.println(Integer.MAX_VALUE);
+
+
+----- Multiplication of prev and next -----------------------------------------------
+
+        int ar [] = {2 , 5, 7, 4, 8, 9};   // op - [10, 14, 20, 56, 36, 72]
+        int prev = ar[0];
+        ar[0] *= ar[1];
+
+        for( int i = 1 ; i < ar.length -1 ; i++ ){
+            int save = ar[i];
+            ar[i] = prev * ar[i+1];
+            prev = save ;
+        }
+
+        ar[ar.length -1 ] *= prev ;
+        System.out.println(Arrays.toString(ar));
+
+
+//  cognito_codex - 77
+        
+       int arr[] = {4, 8, 6, 1, 5};
+        int sum = 0 ;
+       for(int i = 0 ; i < arr.length ; i++){
+        int mindiff = Integer.MAX_VALUE;
+
+           for( int j = 0 ; j < arr.length ; j++){
+               if( i != j && mindiff > Math.abs(arr[i] - arr[j]) ){
+                   mindiff = Math.abs(arr[i] - arr[j]);
+               }
+           }
+           System.out.println(mindiff);
+           sum += mindiff ;
+       }
+       System.out.println( "sum - " + sum);
+
+
+
+
+
+
+
+
+
+    }
+}
